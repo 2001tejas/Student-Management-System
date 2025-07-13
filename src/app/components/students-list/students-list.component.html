@@ -1,0 +1,78 @@
+<div class="main container my-4">
+    <div class="bg-white p-4 rounded shadow-sm mt-5">
+        <h3 class="text-center mb-4">📋 Student List</h3>
+
+        <!-- Search & Export Panel -->
+        <form class="row g-2 align-items-center mb-4" (ngSubmit)="searchStudents()">
+            <div class="col-md-3">
+                <select class="form-select" [(ngModel)]="searchField" name="searchField" required>
+                    <option value="name">Name</option>
+                    <option value="class">Class</option>
+                    <option value="age">Age</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <input class="form-control" type="text" placeholder="Enter value..." [(ngModel)]="searchValue"
+                    name="searchValue" (ngModelChange)="searchStudents()" />
+            </div>
+            <div class="col-md-4 text-end">
+                <button class="btn btn-outline-primary me-2" type="button" (click)="exportToCSV()">
+                    📁 Export CSV
+                </button>
+                <button class="btn btn-secondary" type="button" (click)="resetFilter()">
+                    🔄 Reset
+                </button>
+            </div>
+        </form>
+
+        <!-- Table Section -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered table-striped align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Sr. No</th>
+                        <th scope="col" (click)="sortBy('name')" style="cursor: pointer;">
+                            Name
+                            <span *ngIf="sortField === 'name'">
+                                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                            </span>
+                        </th>
+                        <th scope="col" (click)="sortBy('class')" style="cursor: pointer;">
+                            Class
+                            <span *ngIf="sortField === 'class'">
+                                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                            </span>
+                        </th>
+                        <th scope="col" (click)="sortBy('age')" style="cursor: pointer;">
+                            Age
+                            <span *ngIf="sortField === 'age'">
+                                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                            </span>
+                        </th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (student of studentListFiltered; let i = $index; track student) {
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td [innerHTML]="highlightText(student.name, searchField === 'name' ? searchValue : '')"></td>
+                        <td
+                            [innerHTML]="highlightText(student.class.toString(), searchField === 'class' ? searchValue : '')">
+                        </td>
+                        <td
+                            [innerHTML]="highlightText(student.age.toString(), searchField === 'age' ? searchValue : '')">
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-sm btn-danger" (click)="delete(student.id)">🗑️ Delete</button>
+                                <button class="btn btn-sm btn-primary" (click)="edit(student.id)">✏️ Edit</button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

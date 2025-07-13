@@ -1,0 +1,32 @@
+<main *ngIf="showNavbar">
+  <nav class="navbar navbar-expand-lg shadow-sm bg-white fixed-top custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-primary" [routerLink]="['/dashboard']" routerLinkActive="active">
+        Student Management
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item me-3">
+            <a class="nav-link text-dark" [routerLink]="['/add']" routerLinkActive="active">Add Student</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link text-dark" [routerLink]="['/list']" routerLinkActive="active">Student List</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</main>
+
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>

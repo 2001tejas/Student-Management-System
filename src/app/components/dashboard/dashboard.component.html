@@ -1,0 +1,14 @@
+<div class="dashboard-container">
+  <div class="chart-card">
+    <div class="dropdown">
+      <label for="chartSelect">Chart Type:</label>
+      <select id="chartSelect" [(ngModel)]="chartType">
+        <option *ngFor="let type of chartTypes" [value]="type">{{ type | titlecase }}</option>
+      </select>
+    </div>
+
+    <div class="chart-wrapper">
+      <canvas baseChart [data]="chartData" [type]="chartType" [options]="chartOptions"></canvas>
+    </div>
+  </div>
+</div>

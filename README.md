@@ -1,70 +1,27 @@
+# StudentManagement
 
-# Student Management System (Angular + JSON Server)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
 
-A simple yet elegant Student Management System built with Angular. This application allows you to add, edit, view, and delete student records. It features a clean UI, responsive design, and interactive dashboard charts.
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Features
+## Code scaffolding
 
-🔐 Login page with simple email/password authentication
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-📋 Student list view
+## Build
 
-➕ Add student form
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-✏️ Edit student data
+## Running unit tests
 
-🗑️ Delete student entries
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-📊 Dashboard with dynamic charts using ng2-charts
+## Running end-to-end tests
 
-📡 JSON Server as a backend to simulate RESTful APIs
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-🎨 Beautiful UI with Bootstrap 5
+## Further help
 
-
-## Tech Stack
-
-**Client:** Angular 17+, TypeScript, Bootstrap 5,ng2-charts (Chart.js)
-
-**Server:** JSON Server (Mock API)
-
-
-## Installation
-
-Install student-management-angular with npm
-
-```bash
-  git clone https://github.com/2001tejas/Student-Management-System
-  cd student-management-angular
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Run JSON Server
-Make sure you have JSON Server installed globally:
-
-```bash
-npm install -g json-server
-```
-
-Then run the server:
-
-```bash
-npx json-server db.json
-```
-
-This will run the API at: http://localhost:3000/student
-
-
-Start Angular app
-
-```bash
-ng serve
-```
-
-Open in browser: http://localhost:4200
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -1,0 +1,24 @@
+<div class="form-container">
+    <h2 class="form-title">Add New Student</h2>
+    <form #studentform="ngForm" (ngSubmit)="addStudent(studentform.value)">
+        <div class="form-group">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="nameInput" ngModel placeholder="Enter full name"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label for="classInput" class="form-label">Class</label>
+            <input type="text" class="form-control" name="class" id="classInput" ngModel placeholder="e.g., 10A"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label for="ageInput" class="form-label">Age</label>
+            <input type="number" class="form-control" name="age" id="ageInput" ngModel placeholder="Enter age"
+                required />
+        </div>
+
+        <button type="submit" class="btn-submit">Submit</button>
+    </form>
+</div>
